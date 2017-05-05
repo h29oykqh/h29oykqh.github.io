@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://libs.baidu.com/jquery/1.6.1/jquery.min.js"></script>
+<script src="/jquery/jquery-1.11.1.min.js">
+</script>
 <script>
 $(document).ready(function(){
   $("button").click(function(){
@@ -14,9 +15,27 @@ $(document).ready(function(){
 
 },
 function(data){
-
-
-      document.getElementById("txtHint").innerHTML +='<p><span style="color:green;">图灵机器人</span>  '+ ' :<br/> '+data.text+'</p>' ;
+if(data.code == "302000"){
+      p = '<p><span style="color:green;">图灵机器人</span>  '+ ' :<br/>';
+ $.each(data.list, function(i,item){  
+               p+= '<a href="'+item.detailurl+'" target="view_window">'+(i+1)+'.'+item.article+'</a><br/>' ; 
+            });  
+      p += '</p>';
+}
+if(data.code == "308000"){
+      p = '<p><span style="color:green;">图灵机器人</span>  '+ ' :<br/> ' ;
+ $.each(data.list, function(i,item){  
+               p+= '<a href="'+item.detailurl+'" target="view_window">'+(i+1)+'.'+item.name+'</a><br/>菜谱信息：'+item.info+'<br/>' ; 
+            });  
+      p += '</p>';
+}
+if(data.code == "200000"){
+      p = '<p><span style="color:green;">图灵机器人</span>  '+ ' :<br/> <a href="'+data.url+'" target="view_window">'+data.text+'</a></p>' ;
+}
+if(data.code == "100000"){
+      p = '<p><span style="color:green;">图灵机器人</span>  '+ ' :<br/> '+data.text+'</p>' ;
+}
+       document.getElementById("txtHint").innerHTML += p;
        document.getElementById('content').value='';
     });
   });
