@@ -2,7 +2,6 @@
 <html>
 <head>
 <script src="https://libs.baidu.com/jquery/1.6.1/jquery.min.js"></script>
-</script>
 <script>
 $(document).ready(function(){
   $("button").click(function(){
@@ -46,11 +45,12 @@ if(data.code == "100000"){
 </script>
 </head>
 <body>
+  <div style="margin-left:10%">
 <p>内容：<span id="txtHint"></span></p>
 <div>
         <input type="text" id="content" onkeydown='if(event.keyCode==13){send.click()}'/>
-        <button name="发送" id="send">发送
-    </div>  
- 
+        <button name="发送" id="send">发送</button>
+</div>
+  </div>
 </body>
 </html>
