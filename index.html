@@ -7,7 +7,7 @@ $(document).ready(function(){
   $("button").click(function(){
     document.getElementById("txtHint").innerHTML +='<p><span style="color:red;">你</span>  '+ ' :<br/> '+$("#content").val()+'</p>' ;
     
-    $.get("https://www.tuling123.com/openapi/api",
+    $.get("http://www.tuling123.com/openapi/api",
 {
     key : "c0e7c5a53b084a579f1a0b67d101c6f5",
     info: $("#content").val(),
